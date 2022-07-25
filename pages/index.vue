@@ -5,7 +5,7 @@
     <nuxt-logo />
 
     <h1>HomePage</h1>
-    <a href="/products">Go To Products</a>
+    <button @click="$router.push('/products')" >Go To Products</button>
   </div>
 
 </template>

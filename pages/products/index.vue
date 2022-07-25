@@ -3,8 +3,9 @@
   <div>
     <h1>Products Page</h1>
 
-    <a href="/products/1">Product one</a>
-    <a href="/products/2">Product two</a>
+    <nuxt-link to="/products/1">Go To Products one</nuxt-link><br>
+    <nuxt-link to="/products/2">Go To Products two</nuxt-link>
+
   </div>
 
 </template>

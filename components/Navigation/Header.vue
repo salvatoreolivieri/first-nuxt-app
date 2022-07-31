@@ -1,8 +1,10 @@
 <template>
-  <header>
+  <header class="container">
 
     <div class="logo-container">
-      <img src="" alt="logo">
+      <a href="/">
+        <img  src="~assets/img/logo.png" alt="[logo]">
+      </a>
     </div>
 
     <nav>
@@ -10,20 +12,30 @@
       <ul>
 
         <li>
-          <a href="/chi-siamo">Chi siamo</a>
+          <nuxt-link to="/chi-siamo">Chi siamo</nuxt-link>
         </li>
 
         <li>
-          <a href="/servizi">Servizi</a>
+          <nuxt-link to="/servizi">Servizi</nuxt-link>
         </li>
 
         <li>
-          <a href="/clienti">Clienti</a>
+          <nuxt-link to="/clienti">Clienti</nuxt-link>
         </li>
 
         <li>
-          <a href="/contatti">Contatti</a>
+          <nuxt-link to="/blog">Blog</nuxt-link>
         </li>
+
+        <li>
+          <nuxt-link to="/contatti">Contatti</nuxt-link>
+        </li>
+
+        <li>
+          <button @click="$router.push('/admin')">Admin</button>
+        </li>
+
+
 
       </ul>
 
@@ -39,6 +51,44 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+header{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 48px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  .logo-container{
+    width: 50px;
+
+    img{
+      width: 100%;
+    }
+  }
+
+  nav{
+
+    ul{
+
+      display: flex;
+      align-items: center;
+
+      li{
+
+        list-style: none;
+        margin-right: 30px;
+
+      }
+
+    }
+
+  }
+
+}
 
 </style>

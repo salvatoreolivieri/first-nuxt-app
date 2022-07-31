@@ -1,14 +1,23 @@
 <template>
 
   <div>
-    <h1>HomePage</h1>
-    <button @click="$router.push('/products')" >Go To Products</button>
+
+    <HeroSection />
+
   </div>
 
 </template>
 
 <script>
+import HeroSection from '../components/Section/HeroSection.vue';
+
 export default {
-  name: 'IndexPage'
+    name: "IndexPage",
+    components: { HeroSection }
 }
 </script>
+
+<style lang="scss" scoped>
+
+
+</style>

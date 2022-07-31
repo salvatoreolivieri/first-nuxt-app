@@ -1,3 +1,53 @@
 *{
-  background-color: aqua;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4eb;
+}
+
+.container{
+  margin: 0 auto;
+  width: 80%;
+}
+
+
+// Testi
+
+h1{
+  font-size: 56px;
+}
+
+
+
+// Link & Button
+
+a{
+  color: black;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover,
+  &.nuxt-link-active{
+    color: #d38048;
+    text-decoration: underline;
+  }
+}
+
+button{
+  background-color: #f2b68d;
+
+  padding: 9px 21px;
+
+  border: 1px solid #151314;
+  border-radius: 2px;
+
+  font-size: 15px;
+
+
+  cursor: pointer;
+
+  &:hover{
+    background-color: #f3cbb0;
+  }
 }

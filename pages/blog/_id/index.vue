@@ -1,5 +1,9 @@
 <template>
   <div class="container">
-    <h1>Clienti</h1>
+    <h1>Blog item</h1>
+
+
+
+
   </div>
 </template>

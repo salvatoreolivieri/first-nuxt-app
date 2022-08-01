@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="'/blog/' + id" class="card">
+  <nuxt-link :to="postLink" class="card">
 
     <div class="bg-image"></div>
 
@@ -30,15 +30,28 @@ export default {
       previewText: {
         type: String,
         required: true
+      },
+
+      isAdmin: {
+        type: Boolean,
+        required: true
       }
 
     },
+
 
   data(){
     return{
 
     }
+  },
+
+  computed: {
+    postLink(){
+      return this.isAdmin ? '/admin/' + this.id : '/blog/' + this.id
+    }
   }
+
 }
 </script>
 

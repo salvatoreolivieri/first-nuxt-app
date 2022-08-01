@@ -1,14 +1,18 @@
 <template>
   <header class="container">
 
-    <div class="arrow-container">
 
-     <Arrow />
-    </div>
+    <a href="/">
 
-    <div>
-      <a href="/">Back Home</a>
-    </div>
+      <div class="arrow-container">
+
+         <Arrow />
+
+          Back Home
+
+      </div>
+
+    </a>
 
   </header>
 </template>
@@ -34,8 +38,11 @@ header{
   margin-bottom: 50px;
 
   .arrow-container{
-    width: 30px;
-    margin-right: 10px;
+
+    height: 100%;
+
+    display: flex;
+    align-items: center;
 
   }
 

@@ -3,52 +3,51 @@
 
     <h1>Blog</h1>
 
-    <div class="blog-container">
-
-      <CardPost
-        :isAdmin="isAdmin"
-        id="1"
-        title="Human Analysis"
-        previewText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nobis incidunt quaerat animi sequi nesciunt. Nesciunt harum vitae eligendi accusamus?"
-        />
-
-      <CardPost
-        :isAdmin="isAdmin"
-        id="2"
-        title="Universe Theory"
-        previewText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nobis incidunt quaerat animi sequi nesciunt. Nesciunt harum vitae eligendi accusamus?"
-        />
-
-    </div>
-
+    <PostList
+      :posts="posts"
+    />
 
   </div>
 
 </template>
 
 <script>
-import CardPost from '~/components/Posts/CardPost.vue';
+
+import axios from 'axios'
 
 export default {
-    components: { CardPost },
 
-    props:{
-
-      isAdmin: {
-        type: Boolean,
-        default: false
-      }
-
+  data(){
+    return{
+      posts: []
     }
+  },
+
+  methods:{
+    apiRequest(){
+      axios.get(process.env.baseUrl)
+      .then(output =>{
+        console.log('questo è il log dei post: ', output.data);
+
+        const postArray = [];
+        for (const key in output.data) {
+              postArray.push( {...output.data[key], id: key} )
+            }
+
+        this.posts = postArray;
+      })
+    }
+  },
+
+  mounted(){
+    this.apiRequest()
+  }
+
 
 }
 
 </script>
 
 <style lang="scss" scoped>
-
-.blog-container{
-  display: flex;
-}
 
 </style>

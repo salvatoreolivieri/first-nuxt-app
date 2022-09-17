@@ -5,7 +5,7 @@
 
     <div class="post-data">
       <h2>{{ title }}</h2>
-      <p>{{ previewText }}</p>
+      <p>{{ content }}</p>
     </div>
 
   </nuxt-link>
@@ -27,7 +27,7 @@ export default {
         required: true
       },
 
-      previewText: {
+      content: {
         type: String,
         required: true
       },
@@ -72,9 +72,10 @@ export default {
 
   .bg-image{
     width: 100%;
-    height: 255px;
+    height: 200px;
     background-image: url('~assets/img/article-cover.jpg');
     background-size: cover;
+    background-position: center;
   }
 
   .post-data{

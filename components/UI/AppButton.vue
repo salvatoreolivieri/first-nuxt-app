@@ -24,12 +24,13 @@ export default {
   font: inherit;
   background-color: black;
   color: white;
-  padding: 5px;
+  padding: 5px 10px;
   cursor: pointer;
   border: 1px solid black;
+  border-radius: 5px;
 }
 
-.button:hover,
+
 .button:active {
   background-color: rgb(51, 51, 51);
   border: 1px solid black;
@@ -38,10 +39,9 @@ export default {
 .inverted {
   background-color: white;
   color: black;
-  border: 1px solid transparent;
+  border: 1px solid #dee2e6;
 }
 
-.inverted:hover,
 .inverted:active {
   color: #ccc;
   background-color: white;
@@ -54,10 +54,4 @@ export default {
   border: 1px solid transparent;
 }
 
-.cancel:hover,
-.cancel:active {
-  background-color: salmon;
-  border: 1px solid transparent;
-  color: white;
-}
 </style>

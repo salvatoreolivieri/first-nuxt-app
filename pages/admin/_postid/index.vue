@@ -20,14 +20,7 @@
 
 <script>
 
-import AdminPostForm from '~/components/Admin/AdminPostForm.vue'
-
-
 export default {
-
-  components:{
-    AdminPostForm
-  },
 
   data(){
     return{

@@ -1,7 +1,7 @@
 <template>
   <div class="admin-auth-page">
     <div class="auth-container">
-      <form>
+      <form @submit.prevent="">
         <AppControlInput type="email">E-Mail Address</AppControlInput>
         <AppControlInput type="password">Password</AppControlInput>
         <AppButton type="submit">{{ isLogin ? 'Login' : 'Sign Up' }}</AppButton>
@@ -16,20 +16,19 @@
 </template>
 
 <script>
-import AppControlInput from '@/components/UI/AppControlInput'
-import AppButton from '@/components/UI/AppButton'
 
 export default {
   name: 'AdminAuthPage',
   layout: 'admin',
-  components: {
-    AppControlInput,
-    AppButton
-  },
+
   data() {
     return {
       isLogin: true
     }
+  },
+
+  methods:{
+
   }
 }
 </script>

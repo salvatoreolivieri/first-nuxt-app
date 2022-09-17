@@ -21,16 +21,9 @@
 </template>
 
 <script>
-import AppButton from '~/components/UI/AppButton.vue'
-import AppControlInput from '~/components/UI/AppControlInput.vue'
 
 export default {
   name:"AdminPostForm",
-
-  components:{
-    AppButton,
-    AppControlInput
-  },
 
   props:{
     post: {
@@ -55,7 +48,7 @@ export default {
   methods: {
 
     onSave(){
-      console.log('New Post: ', this.newPost);
+      this.$emit('submit', this.newPost)
     },
 
     onCancel(){

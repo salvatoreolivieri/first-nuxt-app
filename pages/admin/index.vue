@@ -6,41 +6,48 @@
 
     <h2>Existing Post</h2>
 
-    <div class="existing-post-container">
-
-      <CardPost
-          isAdmin
-          id="1"
-          title="Human Analysis"
-          previewText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nobis incidunt quaerat animi sequi nesciunt. Nesciunt harum vitae eligendi accusamus?"
-          />
-
-      <CardPost
-        isAdmin
-        id="2"
-        title="Universe Theory"
-        previewText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nobis incidunt quaerat animi sequi nesciunt. Nesciunt harum vitae eligendi accusamus?"
-        />
-
-    </div>
+    <PostList
+      :posts="posts"
+      :isAdmin='true'
+    />
 
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 import adminVue from '~/layouts/admin.vue'
-import CardPost from '~/components/Posts/CardPost.vue';
-
 
 export default {
 
   layout: 'admin',
 
-  components:{
-    CardPost
+  data(){
+    return{
+      posts: {}
+    }
+  },
+
+  methods:{
+    apiRequest(){
+      axios.get(process.env.baseUrl)
+      .then(output =>{
+        console.log('questo è il log dei post: ', output.data);
+        this.posts = output.data;
+      })
+    }
+  },
+
+  updated(){
+    this.apiRequest()
+  },
+
+  mounted(){
+    this.apiRequest()
   }
 
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -54,11 +61,6 @@ export default {
   h2{
     font-size: 36px;
   }
-
-  .existing-post-container{
-    display: flex;
-  }
-
 
 }
 

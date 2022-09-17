@@ -11,7 +11,8 @@
     <h1>Create New Post</h1>
 
     <div class="form-container">
-      <AdminPostForm />
+      <AdminPostForm
+      @submit="onSubmitted"/>
     </div>
 
   </div>
@@ -20,16 +21,42 @@
 
 <script>
 import adminVue from '~/layouts/admin.vue'
-
-import AdminPostForm from '~/components/Admin/AdminPostForm.vue'
+import axios from 'axios'
 
 export default {
 
   layout: 'admin',
 
-  components:{
-    AdminPostForm
+  data(){
+    return{
+      editedPost:{
+        author: '',
+        title: '',
+        thumbnailLink: '',
+        content: ''
+      }
+    }
   },
+
+  methods:{
+
+    // Funzione per salvare dati nel database di firabse utilizzando il metodo post di axios
+    onSubmitted(postData) {
+      axios.post(process.env.baseUrl, postData)
+      .then(output => {
+        console.log(output);
+      })
+      .catch(error =>{
+        context.error(error);
+      })
+
+      this.$router.push('/admin/')
+    }
+
+
+
+
+  }
 
 }
 </script>

@@ -18,10 +18,9 @@
 </template>
 
 <script>
-import Arrow from '../UX/arrow.vue';
+
 export default {
     name: "AdminHeader",
-    components: { Arrow }
 }
 </script>
 

@@ -8,18 +8,18 @@ const createStore = () => {
     },
 
     mutation:{
-      setPosts(state, posts) {
-        state.loadedPosts = posts;
-      },
+      // setPosts(state, posts) {
+      //   state.loadedPosts = posts;
+      // },
 
-      addPost(state, newPost){
-        state.loadedPosts.push(newPost)
-      },
+      // addPost(state, newPost){
+      //   state.loadedPosts.push(newPost)
+      // },
 
-      editedPost(state, editedpost){
-        const postIndex = state.loadedPosts.findIndex(post => post.id === editedpost.id);
-        state.loadedPosts[postIndex] = editedpost
-      }
+      // editedPost(state, editedpost){
+      //   const postIndex = state.loadedPosts.findIndex(post => post.id === editedpost.id);
+      //   state.loadedPosts[postIndex] = editedpost
+      // }
 
     },
 
@@ -45,20 +45,20 @@ const createStore = () => {
 
       },
 
-      addPost(vuexContext, newPost) {
-        axios.post(process.env.baseUrl, ...postData)
-          .then(output => {
-            this.$router.push('/admin/')
-          })
-          .catch(error =>{
-            context.error(error);
-          })
+      // addPost(vuexContext, newPost) {
+      //   axios.post(process.env.baseUrl, ...postData)
+      //     .then(output => {
+      //       this.$router.push('/admin/')
+      //     })
+      //     .catch(error =>{
+      //       context.error(error);
+      //     })
 
-      },
+      // },
 
-      editPost(vuexContext, editedPost) {
+      // editPost(vuexContext, editedPost) {
 
-      },
+      // },
 
       setPosts(vuexContext, posts) {
         vuexContext.commit('setPosts', posts)

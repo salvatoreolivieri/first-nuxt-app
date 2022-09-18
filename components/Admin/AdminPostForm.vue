@@ -2,19 +2,29 @@
 
   <form @submit.prevent="onSave">
 
-      <AppControlInput v-model="newPost.title">Title</AppControlInput>
+      <AppControlInput
+        v-model="newPost.title">
+          Title
+      </AppControlInput>
 
       <AppControlInput
-                control-type="textarea"
-                v-model="newPost.content">Content</AppControlInput>
-
-      <AppButton type="submit">Save</AppButton>
+        control-type="textarea"
+        v-model="newPost.content">
+          Content
+      </AppControlInput>
 
       <AppButton
-                type="button"
-                style="margin-left: 10px"
-                btn-style="cancel"
-                @click="onCancel">Cancel</AppButton>
+        type="submit">
+          Save
+      </AppButton>
+
+      <AppButton
+        type="button"
+        style="margin-left: 10px"
+        btn-style="cancel"
+        @click="onCancel">
+          Cancel
+      </AppButton>
 
   </form>
 
@@ -35,7 +45,7 @@ export default {
   data(){
 
     return{
-      newPost: this. post
+      newPost: this.post
       ? { ...this.post }
       : {
         title: '',
@@ -48,6 +58,7 @@ export default {
   methods: {
 
     onSave(){
+      console.log('porco dio sto cliccando');
       this.$emit('submit', this.newPost)
     },
 

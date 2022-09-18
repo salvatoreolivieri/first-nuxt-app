@@ -32,8 +32,13 @@ export default {
     apiRequest(){
       axios.get(process.env.baseUrl)
       .then(output =>{
-        console.log('questo è il log dei post: ', output.data);
-        this.posts = output.data;
+
+        const postArray = [];
+        for (const key in output.data) {
+              postArray.push( {...output.data[key], id: key} )
+            }
+
+        this.posts = postArray;
       })
     }
   },

@@ -44,17 +44,13 @@ export default {
     onSubmitted(postData) {
       axios.post(process.env.baseUrl, postData)
       .then(output => {
-        console.log(output);
+        this.$router.push('/admin/')
       })
       .catch(error =>{
         context.error(error);
       })
 
-      this.$router.push('/admin/')
     }
-
-
-
 
   }
 

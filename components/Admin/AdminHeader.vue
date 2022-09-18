@@ -2,7 +2,7 @@
   <header class="container">
 
 
-    <a href="/">
+    <nuxt-link class="no-active" to="/">
 
       <div class="arrow-container">
 
@@ -12,7 +12,7 @@
 
       </div>
 
-    </a>
+    </nuxt-link>
 
   </header>
 </template>
@@ -29,7 +29,7 @@ export default {
 header{
 
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 
   height: 48px;
@@ -43,6 +43,16 @@ header{
     display: flex;
     align-items: center;
 
+  }
+
+  .no-active{
+    color: black;
+    text-decoration: none;
+
+    &:hover{
+      color: #d38048;
+      text-decoration: underline;
+    }
   }
 
 }

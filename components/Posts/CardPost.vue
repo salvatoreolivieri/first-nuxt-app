@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="postLink" class="card">
+  <a :href="postLink" class="card">
 
     <div class="bg-image"></div>
 
@@ -8,7 +8,7 @@
       <p>{{ content }}</p>
     </div>
 
-  </nuxt-link>
+  </a>
 </template>
 
 <script>

@@ -10,12 +10,23 @@ const createStore = () => {
     mutation:{
       setPosts(state, posts) {
         state.loadedPosts = posts;
+      },
+
+      addPost(state, newPost){
+        state.loadedPosts.push(newPost)
+      },
+
+      editedPost(state, editedpost){
+        const postIndex = state.loadedPosts.findIndex(post => post.id === editedpost.id);
+        state.loadedPosts[postIndex] = editedpost
       }
+
     },
 
     actions:{
       nuxtServerInit(vuexContext, context) {
         return axios.get(process.env.baseUrl)
+
           .then(output => {
 
             // Lo trasformo in array
@@ -26,9 +37,26 @@ const createStore = () => {
 
             vuexContext.commit('setPosts', postArray)
           })
+
+
           .catch(error => {
             context.error(error);
           })
+
+      },
+
+      addPost(vuexContext, newPost) {
+        axios.post(process.env.baseUrl, ...postData)
+          .then(output => {
+            this.$router.push('/admin/')
+          })
+          .catch(error =>{
+            context.error(error);
+          })
+
+      },
+
+      editPost(vuexContext, editedPost) {
 
       },
 

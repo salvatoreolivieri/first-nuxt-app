@@ -12,7 +12,8 @@
     <div class="form-container">
       <AdminPostForm
         :post="loadedPost"
-        />
+        @submit="editPost"
+      />
     </div>
 
   </div>
@@ -20,14 +21,38 @@
 
 <script>
 
+import adminVue from '~/layouts/admin.vue'
+import axios from 'axios'
+
 export default {
+
+  layout: 'admin',
 
   data(){
     return{
-      loadedPost: {
-        title: 'Universe Explained',
-        content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vel sequi voluptates quas voluptatibus. Iste voluptates harum eius autem magni delectus quod reiciendis eligendi distinctio. Eveniet adipisci natus itaque nulla!'
-      }
+
+    }
+  },
+
+  asyncData(context) {
+    return axios
+      .get('https://first-nuxt-app-97703-default-rtdb.firebaseio.com/posts/' + context.params.postid + '.json')
+      .then(output => {
+        return{
+          loadedPost: output.data
+        }
+      })
+  },
+
+  methods: {
+    editPost(editedPost) {
+      axios.put('https://first-nuxt-app-97703-default-rtdb.firebaseio.com/posts/' + this.$route.params.postid + '.json', editedPost)
+
+        .then(output =>{
+          this.$router.push('/admin/')
+        })
+
+        .catch(e => console.log(e))
     }
   }
 
